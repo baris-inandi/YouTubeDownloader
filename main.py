@@ -4,6 +4,10 @@ import shutil
 from time import sleep as delay
 from getpass import getpass
 
+def uninstall():
+    os.system("start " + "./unins000.exe")
+    raise Exception
+
 def isFileExistent(fileToValidate) :
     if os.path.isfile(fileToValidate) :
         result = True
@@ -32,7 +36,9 @@ def download_video(link) :
 
 def main() :
     os.system("cls")
-    link = input("Enter the link of YouTube video you want to download:\n  ")
+    link = input("Enter video link:\n> ")
+    if link == "uninstall":
+        uninstall()
     download_folder = os.path.expanduser("~") + r'\Downloads'
     destination = download_folder + r"\DownloadedVideo.mp4"
 
